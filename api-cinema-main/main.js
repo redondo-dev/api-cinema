@@ -17,8 +17,13 @@ const options = {
       
   fetch('https://online-movie-database.p.rapidapi.com/auto-complete?q='+ texte.value, options)
   .then(response => response.json())
+
+//   if (response.status == 404){ console.log("erreur 404 page not found ")
   
-  .then((data) => {
+// } else {
+
+//  } 
+ .then((data) => {
     const list = data.d;
 
     list.map((item) => {
@@ -31,7 +36,7 @@ const options = {
       const movie = `
             <li>
             <img src="${poster}">
-                <h2>genre:${title}<h2>
+                <h2>Genre:${title}<h2>
                 <h2>Titre :${name}</h2>
                 <h2>Acteurs:${actor}</h2>
                 <h3> Année de sortie:${year}</h3> 
@@ -48,14 +53,13 @@ const options = {
 
 const bouton = document.getElementById("bouton");
 const body =document.getElementById("body");
+
+
 // const btn = document.getElementById("btn");
 
 
 bouton.addEventListener("click",()=> {
 body.classList.toggle("mystyle");
-bouton.classList.toggle("btnLight");
-
-
 
 }
 )
